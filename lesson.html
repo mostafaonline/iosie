@@ -1,0 +1,751 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iosie VISITOR</title>
+
+
+<link rel="stylesheet" type="text/css" href="styles/960grid/960_24_col.css" />
+<link rel="stylesheet" type="text/css" href="styles/960grid/reset.css" />
+<link rel="stylesheet" type="text/css" href="styles/960grid/text.css" />
+<link rel="stylesheet" type="text/css" href="styles/personal.css" />
+<link rel="stylesheet" type="text/css" href="styles/jplayer.pink.flag.css" />
+<link rel="stylesheet" type="text/css" href="styles/jquery-ui-1.8.22.custom.css" />
+
+
+
+
+
+
+<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.8.22.custom.min.js" type="text/javascript" ></script>
+<script src="js/jquery.jplayer.min.js" type="text/javascript" ></script>
+
+<script type="text/javascript">
+ 	$(function() {
+		
+			//Tabs
+				$( "#tabs" ).tabs();
+		
+			// Dialog
+				$('#dialog1').dialog({
+					autoOpen: false,
+					width: 600,
+					
+				});
+				
+				$('#dialog2').dialog({
+					autoOpen: false,
+					width: 600,
+					
+				});
+				
+				$('#dialog3').dialog({
+					autoOpen: false,
+					width: 600,
+					
+				});
+				
+				
+			// Dialog Link
+				$('#dialog_link1').click(function(){
+					$('#dialog1').dialog('open');
+					return false;
+				});
+				
+				$('#dialog_link2').click(function(){
+					$('#dialog2').dialog('open');
+					return false;
+				});
+				
+				$('#dialog_link3').click(function(){
+					$('#dialog3').dialog('open');
+					return false;
+				});
+	});
+ 
+ 
+//Nested Side Bar Menu (Mar 20th, 09)
+//By Dynamic Drive: http://www.dynamicdrive.com/style/
+//Mostafa Nasehi :D
+
+var menuids=["sidebarmenu1"] //Enter id(s) of each Side Bar Menu's main UL, separated by commas
+
+function initsidebarmenu(){
+for (var i=0; i<menuids.length; i++){
+  var ultags=document.getElementById(menuids[i]).getElementsByTagName("ul")
+    for (var t=0; t<ultags.length; t++){
+    ultags[t].parentNode.getElementsByTagName("a")[0].className+=" subfolderstyle"
+  if (ultags[t].parentNode.parentNode.id==menuids[i]) //if this is a first level submenu
+   ultags[t].style.left=ultags[t].parentNode.offsetWidth+"px" //dynamically position first level submenus to be width of main menu item
+  else //else if this is a sub level submenu (ul)
+    ultags[t].style.left=ultags[t-1].getElementsByTagName("a")[0].offsetWidth+"px" //position menu to the right of menu item that activated it
+    ultags[t].parentNode.onmouseover=function(){
+    this.getElementsByTagName("ul")[0].style.display="block"
+    }
+    ultags[t].parentNode.onmouseout=function(){
+    this.getElementsByTagName("ul")[0].style.display="none"
+    }
+    }
+  for (var t=ultags.length-1; t>-1; t--){ //loop through all sub menus again, and use "display:none" to hide menus (to prevent possible page scrollbars
+  ultags[t].style.visibility="visible"
+  ultags[t].style.display="none"
+  }
+  }
+}
+
+if (window.addEventListener)
+window.addEventListener("load", initsidebarmenu, false)
+else if (window.attachEvent)
+window.attachEvent("onload", initsidebarmenu)
+
+
+
+$(document).ready(function(){  
+    $("#featured > ul").tabs({fx:{height: "toggle"}}).tabs("rotate", 3000, true);
+	$("#featured > ul").mouseover(function(){
+    $(this).tabs('rotate', 0, false);
+	});
+	$("#featured > ul").mouseout(function(){
+    $(this).tabs({ fx: {opacity: 'toggle'}}).tabs('rotate', 3000);
+	});  
+	}); 
+
+
+
+
+
+ $(document).ready(function(){
+      $("#jquery_jplayer_1").jPlayer({
+        ready: function () {
+          $(this).jPlayer("setMedia", {
+            m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+          });
+        },
+        swfPath: "/js",
+        supplied: "m4a, oga"
+      });
+    });
+	
+    
+</script>
+
+</head>
+<body>
+<div  class="toolbar_bg">
+<div id="container" class="container_24 clearfix">
+	<div  id="header" class="grid_24 clearfix">
+	 	   <div class="toolbar">
+           
+           
+           
+           <!--search form -------------------------------------------------------------------------------------------------------------->
+	 	   		<form class="searchform">
+				<input class="searchfield" type="text" value="Search Content" onfocus="if (this.value == 'Search Content') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search Content';}" />
+				<input class="searchbutton" type="button" value="Go" />
+				</form>
+                <a href="" class="advanced_search">Advanced Search</a>
+                
+           <!--search form -------------------------------------------------------------------------------------------------------------->
+                
+                
+                
+                
+                
+                
+           <!--login form -------------------------------------------------------------------------------------------------------------->                
+                <form class="loginform">
+				<input class="emailfield" type="text" value="Email" onfocus="if (this.value == 'Email') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Email';}" />
+                <input class="passfield" type="text" value="Password" onfocus="if (this.value == 'Password') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Password';}" />
+				<input class="signinbutton" type="button" value="Sign in" />
+				</form>
+                <a href="" class="sign_up">Sign Up</a>
+           <!--login form -------------------------------------------------------------------------------------------------------------->                
+                
+                
+                
+                
+                
+	 	   </div><!--toolbar -->
+	</div>
+</div>               
+           
+           
+<div  class="head_bg">
+<div id="container" class="container_24 clearfix">           
+		   <div class="">
+		 		<div id="logo"></div>
+                
+                
+           <!--Description in Header -------------------------------------------------------------------------------------------------------------->                                
+                <p id="about">The IslamIFC is a nonprofit, non governmental organization
+                 that works in cooperation with North American Muslims, 
+                 non-Muslims and organizations to promote mutual understanding
+                  and cultural exchange.<a href="">  Watch the Video!&nbsp;</a></p>
+           <!--Description in Header -------------------------------------------------------------------------------------------------------------->                
+                  
+                  
+                  
+                  
+		   </div><!--sec body -->
+	</div><!--header -->
+</div><!--end of header container -->
+</div><!--end of head bg -->
+
+<div id="content" class="container_24 clearfix">
+
+
+
+<!--lesson header ------------------------------------------------------->
+ <div  id="Lesson_Header" class="grid_24 clearfix">
+
+    <ul id="breadcrumbs">
+    	<li><a href="test.html">Home</a></li>
+  		<li><a href="#">Category</a></li>
+    	<li><a href="#">Sub Category</a></li>
+        <li><a href="#">Sub Category</a></li>
+    </ul>
+ 	<div class="LessonTitle"><h1> :: Lesson Title  </h1><span class="LessonInfo" onclick="location.href='#';" title="Lesson Info"></span></div>
+
+ </div>
+ <!--end of lesson heade------------------------------------------------------->
+
+ 
+ 
+ 
+ 
+ 
+ <div id="sidebar" class="grid_5">
+  
+  	<div id="Categories">
+       <!-- <div class="SecHead clearfix">
+            <img class="icon" src="images/home.png" />
+            <h3 class="title">Categories</h3>
+        </div> -->
+        <div class="SecBody">
+        
+          
+          
+
+          
+          <!--Categorise -------------------------------------------------------------------------------------------------------------->        
+          
+        <div class="sidebarmenu">                                
+                   
+                <ul id="sidebarmenu1" class="alpha parent">
+					<li><a href="" style="background:url(images/arrow-right-green.png) right no-repeat">&nbsp;  Categories</a>
+                      <ul>
+                    	<li><a href="#">Category 1</a>
+                            <ul>
+                                <li><a href="#">Sub Item 1.1</a></li>
+                                <li><a href="#">Sub Item 1.2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Category 2</a>
+                            <ul>
+                                <li><a href="#">Sub Item 2.1</a></li>
+                                <li><a href="#">Category 2.1</a>
+                                    <ul>
+                                        <li><a href="#">Sub Item 2.1.1</a></li>
+                                        <li><a href="#">Sub Item 2.1.2</a></li>
+                                        <li><a href="#">Sub Item 2.1.3</a></li>
+                                        <li><a href="#">Sub Item 2.1.4</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Category 3</a>
+                            <ul>
+                                <li><a href="#">Sub Item 3.1</a></li>
+                                <li><a href="#">Sub Item 3.2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Category 4</a>
+                            <ul>
+                                <li><a href="#">Sub Item 4.1</a></li>
+                                <li><a href="#">Sub Item 4.2</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="last">Category 5</a>
+                            <ul>
+                                <li><a href="#">Sub Item 5.1</a></li>
+                                <li><a href="#">Sub Item 4.2</a></li>
+                            </ul>
+                        </li> 
+                      </ul>
+                    </li>
+                </ul>
+        </div>
+          <!--Categorise -------------------------------------------------------------------------------------------------------------->        
+        
+        
+        
+        
+        
+        
+        
+        
+      </div> <!--end of SecBody -->
+  	</div><!-- end of Categories -->
+    
+    
+    
+    
+    
+    
+  	<div id="Annotation">
+        <div class="SecHead">
+            <img class="icon" src="images/home.png" />
+            <h3 class="title">Annotations</h3>
+        </div>
+        
+        
+        
+        
+          <!--Annotation -------------------------------------------------------------------------------------------------------------->                
+        
+        <div class="SecBody">
+
+
+        </div>
+        
+          <!--Annotation -------------------------------------------------------------------------------------------------------------->        
+       
+            
+    </div><!-- end of Annotation -->
+    
+    
+    
+    
+      	<div id="Podcast">
+        <div class="SecHead">
+            <img class="icon" src="images/home.png" />
+            <h3 class="title">Podcast</h3>
+        </div>
+        
+        
+        
+        
+          <!--Podcast -------------------------------------------------------------------------------------------------------------->                
+        
+        <div class="SecBody">
+			
+   
+              <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+              <div id="jp_container_1" class="jp-audio">
+                <div class="jp-type-single">
+                  <div class="jp-gui jp-interface">
+                    <ul class="jp-controls">
+                      <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                      <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                      <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                      <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                      <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                      <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                    </ul>
+                    <div class="jp-progress">
+                      <div class="jp-seek-bar">
+                        <div class="jp-play-bar"></div>
+                      </div>
+                    </div>
+                    <div class="jp-volume-bar">
+                      <div class="jp-volume-bar-value"></div>
+                    </div>
+                    <div class="jp-time-holder">
+                      <div class="jp-current-time"></div>
+                      <div class="jp-duration"></div>
+                      <ul class="jp-toggles">
+                        <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                        <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="jp-no-solution">
+                    <span>Update Required</span>
+                    To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                  </div>
+                </div>
+              </div>
+           
+
+        </div>
+        
+          <!--Podcast -------------------------------------------------------------------------------------------------------------->        
+       
+        
+
+    </div><!-- end of Podcast -->
+    
+    
+    
+    
+   <div id="Presentation">
+        <div class="SecHead">
+            <img class="icon" src="images/home.png" />
+            <h3 class="title">Presentation</h3>
+        </div>
+        
+        
+        
+        
+          <!--Presentation -------------------------------------------------------------------------------------------------------------->                
+        
+        <div class="SecBody">
+
+
+        </div>
+        
+          <!--Presentation -------------------------------------------------------------------------------------------------------------->        
+       
+        
+
+    </div><!-- end of Presentation -->
+    
+    
+    
+    
+    
+  	<div id="Glossary">
+        <div class="SecHead">
+            <img class="icon" src="images/home.png" />
+            <h3 class="title">Glossary</h3>
+        </div>
+        
+        
+        
+        
+          <!--Glossary -------------------------------------------------------------------------------------------------------------->                
+        
+        <div class="SecBody">
+        	<form class="searchform">
+				<input class="searchfield" type="text" value="Search Glossary" onfocus="if (this.value == 'Search Glossary') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search Glossary';}" />
+				<input class="searchbutton" type="button" value="Go" />
+			</form>
+            
+            <div class="index">
+[<a href="#a">A</a>] [<a href="#b">B</a>] [<a href="#c">C</a>] [<a href="#d">D</a>] [<a href="#e">E</a>] [<a href="#f">F</a>] [<a href="#g">G</a>] [<a href="#h">H</a>] [<a href="#i">I</a>] [<a href="#j">J</a>] [<a href="#k">K</a>] [<a href="#l">L</a>] [<a href="#m">M</a>] [<a href="#n">N</a>] [<a href="#o">O</a>] [<a href="#p">P</a>] [<a href="#q">Q</a>] [<a href="#r">R</a>] [<a href="#s">S</a>] [<a href="#t">T</a>] [<a href="#u">U</a>] [<a href="#v">V</a>] [<a href="#w">W</a>] [<a href="#x">X</a>] [<a href="#y">Y</a>] [<a href="#z">Z</a>]
+            </div>
+        </div>
+        
+          <!--Glossary -------------------------------------------------------------------------------------------------------------->        
+       
+        
+        
+        
+        
+    </div><!-- end of Glossary -->
+  
+  	<div id="TagCloud">
+        <div class="SecHead">
+            <img class="icon" src="images/home.png" />
+            <h3 class="title">Tag Cloud</h3>
+        </div>
+        
+        
+        
+          <!--Tag Cloud -------------------------------------------------------------------------------------------------------------->                
+        
+        <div class="SecBody">
+          <div class="tags">
+        	<a href="" class="large">large</a>
+            <a href="" class="medium">medium</a>
+            <a href="" class="small">small</a>
+            <a href="" class="small">small</a>            
+            <a href="" class="medium">medium</a>
+            <a href="" class="large">large</a>
+            <a href="" class="medium">medium</a>
+            <a href="" class="small">small</a>            
+            <a href="" class="large">large</a>
+            <a href="" class="medium">medium</a>
+            <a href="" class="small">small</a>
+            <a href="" class="large">large</a>
+            <a href="" class="small">small</a>
+            <a href="" class="small">small</a>            
+            <a href="" class="large">large</a>
+          </div>
+        </div>
+        
+          <!--Tag CLoud -------------------------------------------------------------------------------------------------------------->        
+       
+        
+         
+    </div><!-- end of Tag Cloud-->  
+    
+     
+ </div><!-- end of sidebar -->
+  
+  
+  
+  
+            <!--Tabbed Area -------------------------------------------------------------------------------------------------------------->        
+
+ <div id="main" class="grid_19 clearfix">
+ 
+	<div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">Main Script</a></li>
+            <li><a href="#tabs-2">Micro Blog</a></li>
+            <li><a href="#tabs-3">Q & A</a></li>
+            <li><a href="#tabs-4">Discussion</a></li>
+        </ul>
+        
+        
+        
+        
+        
+        <!--------------------------------------Main Script Content ------------------------------------>
+        <div id="tabs-1" class="Script body">
+   
+					<div class="objectives">
+                    <h4>Objectives of this Lesson:</h4>
+
+                    	<ol>
+                        	<li>First Objective of this lesson</li>
+                        	<li>Second Objective of this lesson</li>
+                        	<li>Third Objective of this lesson</li>
+                        	<li>Forth Objective of this lesson</li>    
+                         </ol> 
+                     </div>
+                                               
+					<div class="script">
+                    <h4>Script of Lesson</h4>
+                    	<p>
+                        Duis laoreet nunc a libero hendrerit sit amet pretium ligula viverra. Vivamus condimentum imperdiet molestie. Praesent ornare consectetur augue quis consectetur. Nunc condimentum dictum turpis. Morbi augue justo, sagittis in porta at, pellentesque quis tellus. Vivamus bibendum lectus elementum leo egestas lacinia faucibus urna varius. Proin gravida est at libero semper id condimentum risus ullamcorper. Duis faucibus, lacus eget tincidunt vestibulum, ante lacus bibendum enim, non tincidunt sapien metus porttitor velit. In hac habitasse platea dictumst. Fusce facilisis lobortis metus, molestie cursus magna aliquam et.
+
+Suspendisse potenti. Donec at felis at risus laoreet vulputate a sed est. Mauris nisi nulla, tincidunt quis malesuada at, vestibulum eu sem. Donec elementum est viverra sapien vehicula interdum. Fusce a mauris neque. Sed lobortis consequat nisi non auctor. Nam elementum dapibus diam ut vehicula.
+
+Aenean quis gravida risus [<a href="#ref1">1</a>]. Curabitur nibh urna, aliquam et vestibulum a, pretium at urna. Duis nisl est, pretium quis accumsan nec, tincidunt ac justo. Mauris sed lacus felis, et vulputate dui. Ut pharetra suscipit lorem, eu luctus nibh venenatis non. Vestibulum vel elit non felis sollicitudin pretium sed a sapien. Suspendisse potenti. Sed facilisis arcu et enim cursus ac faucibus odio blandit.
+
+Maecenas quis ante sed justo elementum dictum. 
+
+<img src="images/slide4.jpg" />
+
+Morbi ipsum ipsum, varius sed consequat et, ultricies ac nulla. Aliquam erat volutpat. Donec suscipit justo eget est ornare rhoncus. Donec bibendum massa in diam rutrum ultricies. Vestibulum nec lorem turpis, pretium pellentesque tellus. Donec congue bibendum justo nec egestas. Curabitur adipiscing justo et risus pharetra quis rhoncus turpis consequat. Nunc eu tortor orci, in rutrum leo. Aliquam velit augue, accumsan et bibendum at, molestie ac ante. Aliquam condimentum posuere nisl eu dapibus. Fusce viverra massa ac magna posuere quis tristique nulla tincidunt. Nullam dictum, nibh ac mattis auctor, turpis neque dapibus mauris, sodales elementum dui quam viverra eros.
+
+Donec scelerisque ante nec elit varius auctor [<a href="#ref2">2</a>]. In quis turpis id sapien molestie tristique dictum id lorem. Nunc consequat tortor quis nunc sollicitudin pellentesque. Praesent ac mi ac felis vulputate ultrices. Sed molestie odio id diam faucibus imperdiet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean dignissim, felis sodales dapibus elementum, odio nulla interdum nisi, eget fermentum odio metus eu odio. Nunc gravida fringilla cursus.
+
+Nulla placerat enim ac enim gravida fringilla. Nullam in est augue. Vestibulum tincidunt augue vel ante viverra dignissim. Pellentesque porta risus a ipsum dignissim nec cursus enim mollis. Aenean lobortis tincidunt sem, nec porta quam iaculis vitae. Suspendisse sit amet rhoncus orci. Maecenas convallis suscipit viverra. Praesent tristique pharetra condimentum. Donec eget facilisis velit. Cras quis odio augue. Vivamus quis sollicitudin ante. Nam suscipit porttitor ipsum sed dignissim. Curabitur nec augue metus.
+
+Aliquam et tortor vitae dui accumsan luctus [<a href="#ref3">3</a>]. Phasellus est massa, luctus pretium lacinia vel, suscipit a augue. Duis condimentum, diam nec imperdiet commodo, quam lacus pharetra turpis, sit amet egestas massa magna eget eros. Etiam nunc elit, tincidunt quis blandit vitae, sollicitudin id mi. Nam volutpat rhoncus mi a fermentum. Donec urna velit, convallis sit amet viverra nec, tempor convallis quam. Nullam ullamcorper porta cursus. Donec eleifend elit sed lacus dignissim sed gravida mauris vehicula. Etiam eu leo eget metus ornare luctus vel ut lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+
+Sed dapibus erat nec mi bibendum et volutpat sem interdum. Curabitur eu felis leo, quis consequat odio. Suspendisse mi quam, consequat ac consequat eget, tempus in enim. Sed sed est ante, sed eleifend dui. Suspendisse convallis enim elementum velit suscipit ornare. Aliquam id massa nisi. Duis eu sem in erat fermentum interdum a nec nulla.
+
+Curabitur nec erat nec massa iaculis imperdiet at sit amet risus [<a href="#ref4">4</a>]. Aenean pretium pharetra metus eu porta. Duis quam odio, accumsan sed auctor ut, mattis vitae urna. Vestibulum venenatis ante sit amet justo pulvinar ut aliquam nisl bibendum. Vestibulum rutrum dignissim lectus, id porta nisl blandit id. Maecenas at tellus enim. Donec luctus suscipit mi ut malesuada. Integer volutpat nisi vitae augue posuere vehicula. Maecenas interdum, metus id pellentesque consequat, felis arcu ultricies risus, ac tempus enim augue vel augue. Curabitur id feugiat massa. Vivamus luctus fringilla ligula, eu varius magna hendrerit aliquam. Pellentesque eu pharetra magna. Mauris nec diam ac nulla convallis pulvinar. Sed mollis volutpat luctus. Donec nibh nunc, imperdiet porta aliquet in, eleifend et urna. Phasellus iaculis, risus faucibus malesuada viverra, tellus risus tristique enim, in interdum ante nibh ut lacus.
+
+Morbi ut tortor nec est sollicitudin condimentum eu sed quam. Suspendisse potenti. Donec ultricies sodales vestibulum. Vivamus non risus erat. In enim nunc, pharetra non varius et, rhoncus sed magna. Pellentesque mollis, odio et cursus placerat, orci mauris blandit libero, vitae volutpat sapien erat quis erat. Vestibulum tincidunt iaculis fermentum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer eget risus tellus, quis dignissim risus [<a href="#ref5">5</a>]. Cras fringilla magna vitae erat congue quis dictum odio sagittis. Nam lacinia rhoncus facilisis.
+                        </p>
+                    </div>
+                    
+                    <div class="references">
+     				<h4>References</h4>
+                 	<ol>
+                      	<li id="ref1">Reference Title, writer, year of pub, publication, pages</li>
+                    	<li id="ref2">Reference Title, writer, year of pub, publication, pages</li>
+                    	<li id="ref3">Reference Title, writer, year of pub, publication, pages</li>
+                    	<li id="ref4">Reference Title, writer, year of pub, publication, pages</li>
+                    	<li id="ref5">Reference Title, writer, year of pub, publication, pages</li>
+                    </ol>                           
+                 	</div>
+        </div>
+        <!--------------------------------------Main Script Content ------------------------------------>            
+
+
+
+
+
+        
+        
+        <!--------------------------------------Micro Blog Content ------------------------------------>            
+        <div id="tabs-2" class="MicroBlog  body">
+        	<div class="post">
+            	<h2>Post Title</h2>
+                <span class="date">posted on january 24, 2012</span>
+                <span class="comments"><a href="#" id="dialog_link1">18 comments</a></span>              
+           		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+            
+            <div id="dialog1" title="Comments on Post 1">
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+                    
+                    <div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>                                        
+               </div>
+            </div>
+        
+        	<div class="post">
+            	<h2>Post Title</h2>
+                <span class="date">posted on october 14, 2012</span>
+                <span class="comments"><a href="#" id="dialog_link2">22 comments</a></span>
+           		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+                
+			<div id="dialog2" title="Comments on Post 2">
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+                    
+                    <div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>                                        
+               </div>                
+            </div>
+
+        	<div class="post">
+            	<h2>Post Title</h2>
+                <span class="date">posted on october 14, 2012</span>
+                <span class="comments"><a href="#" id="dialog_link3">22 comments</a></span>
+           		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+            	
+                
+                <div id="dialog3" title="Comments on Post 3">
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+                    
+                    <div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>
+
+                	<div class="comment_post">
+                    	<span class="id">UserID</span><small>says:</small>
+                        <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante</p>
+                    </div>                                        
+               </div>
+        </div>
+     </div>
+         <!--------------------------------------Micro Blog Content ------------------------------------>            
+
+
+
+
+
+       
+        
+        <!--------------------------------------Q and A Content ------------------------------------>    
+        <div id="tabs-3" class="body">
+        	
+           <div class="QAbody">
+                <div class="question">
+                	<span class="id">UserID</span>
+                	<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                </div>
+                
+                
+                <div class="answer">
+                	<span class="id">TeacherID</span>
+                	<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                </div> 
+        	</div><!--end of QAbody -->
+            
+           <div class="QAbody">
+                <div class="question">
+                	<span class="id">UserID</span>
+                	<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                </div>
+                
+                
+                <div class="answer">
+                	<span class="id">TeacherID</span>
+                	<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                </div> 
+        	</div><!--end of QAbody -->
+            
+           <div class="QAbody">
+                <div class="question">
+                	<span class="id">UserID</span>
+                	<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                </div>
+                
+                
+                <div class="answer">
+                	<span class="id">TeacherID</span>
+                	<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                </div> 
+        	</div><!--end of QAbody -->
+            
+           <div class="QAbody">
+                <div class="question">
+                	<span class="id">UserID</span>
+                	<p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+                </div>
+                
+                
+                <div class="answer">
+                	<span class="id">TeacherID</span>
+                	<p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+                </div> 
+        	</div><!--end of QAbody -->                        
+        </div>
+        <!--------------------------------------Q and A Content ------------------------------------>
+        
+
+
+
+
+
+
+        <!--------------------------------------Discussion Content ------------------------------------>
+        <div id="tabs-4" class="Discussion body">
+            <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+            <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+        </div>
+        <!--------------------------------------Discussion Content ------------------------------------>
+
+        
+	</div>
+ </div>
+ 
+ 
+ 
+ </div><!-- end of main -->
+</div><!-- end of content -->
+
+    
+    
+    
+     
+ <div class="footer-wrapper">
+    <div id="footer" class="container_24">
+        <div class="grid_24">
+        copyright © IslamIFC : All Rights Reserved
+        </div>
+    </div><!--footer-->
+ </div>
+
+
+</body>
+</html>
